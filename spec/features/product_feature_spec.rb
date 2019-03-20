@@ -9,7 +9,7 @@ RSpec.describe "Products", type: :feature do
   end
 
   describe "creating products" do
-    it 'shows created product and does not redirect', js: :true do
+    # it 'shows created product and does not redirect', js: :true do
       visit new_product_path
       fill_in "Name", with: "New Product"
       fill_in "Price", with: "2"
@@ -23,7 +23,7 @@ RSpec.describe "Products", type: :feature do
   end
 
   describe "products show" do
-    it 'requires javascript to go next' do
+    # it 'requires javascript to go next' do
       p1 = Product.create!(name: "Test Product", inventory: 0, description: "This is a test description with more text than should be there.", price: "2.99")
       p2 = Product.create!(name: "Test Product 2", inventory: 1, description: "This is a second test description with more text than should be there.", price: "1.99")
 
@@ -33,7 +33,7 @@ RSpec.describe "Products", type: :feature do
       expect(page).not_to have_content p2.name
     end
 
-    it 'loads next product without page refresh', js: true do
+    # it 'loads next product without page refresh', js: true do
       p1 = Product.create!(name: "Test Product", inventory: 0, description: "This is a test description with more text than should be there.", price: "2.99")
       p2 = Product.create!(name: "Test Product 2", inventory: 1, description: "This is a second test description with more text than should be there.", price: "1.99")
 
@@ -47,7 +47,7 @@ RSpec.describe "Products", type: :feature do
   end
 
   describe "products index" do
-    it 'gets the description and inventory', js: true do
+    # it 'gets the description and inventory', js: true do
       product = Product.create!(name: "Test Product", inventory: 0, description: "This is a test description with more text than should be there.")
       customer = Customer.create(:name => Faker::Name.name)
       invoice = Invoice.create
